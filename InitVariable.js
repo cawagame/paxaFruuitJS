@@ -13,10 +13,7 @@ const basePharse={'capitale':'Quelle est la capitale de la #key ?'};
 
 
 
-let selec={};
-selec[0]=false;
-selec[1]=false;
-selec[2]=false;
+let selec=[];
 const selecOk=[];
 
 

@@ -75,6 +75,8 @@ for (i=0;i<ix;i++)
                     valeKQkey="key";
                     valeK_=valeK;
                 }
+                js["x"]=ib;
+                js['y']=i;
                 js[valeKQkey] =valeK_;
                 jss =JSON.stringify(js);
                 EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
