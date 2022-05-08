@@ -15,6 +15,15 @@ color: #00ff00;
         
        
     }
+.ookey
+{
+    height:60px;
+    border:1px;
+    border-style:solid;
+    margin:0px;
+    width:150px;
+    
+}
 .oo 
 {
     height:60px;
@@ -29,10 +38,10 @@ color: #00ff00;
 {
     height:63px;
     border:2px;
-    background-color:blue;
+    background-color: #fcf3cf  ;
     border-style:solid;
     margin:0px;
-    width:63px;
+    width:150px;
 }
 
 .oos1

@@ -23,55 +23,62 @@ function EnvValue(id,js,value)
     }
 
 
-function makeQestion(y,x,qFind=0,mFind)
+function makeQestion(y,x,mFind)
     {
         let valueKeys;
+        let valueKeys_;
         CloneActiv("idtab","idoo",newId(x,y,"id"));
         valueKeys =random_item(Object.keys(baseDisco))  /*pour index*/
-        if (!qFind)
-        {valueKeys =baseDisco[valueKeys][mFind];}
-        return valueKeys;
+        valueKeys_ =baseDisco[valueKeys][mFind];
+        return [valueKeys,valueKeys_];
     }
 
 
 function makeQuestionCarre(x,y,mFind)
     {
-        let bsf;
-        if (carre==0)
-        {bsf=0;}
-        else if (carre==1)
-        {bsf =1;}
         carre +=1;
         if (carre>Object.keys(basePharse).length){carre=0;}
-        return makeQestion(x,y,bsf,mFind);
+        return makeQestion(x,y,mFind);
         
     }
 
 const ix=5;
 const iy=5;
 var carre=0;
+let valeK0;
 let valeK;
 let valeK_;
+let valeKQ;
+let valeKDisp;
+let valeKQkey;
 let js ={};
 let jss;
+
+
+
 for (i=0;i<ix;i++)
     {
         for (ib=0;ib<iy;ib++)
             {
+                js={}
+               
+                valeKQ='capitale';
+                valeKQkey=valeKQ;
                 
-                valeK=makeQuestionCarre(i,ib,'capitale');
-                valeK_=valeK;
-                if (carre)
+                valeK0=makeQuestionCarre(i,ib,valeKQ);
+                valeK=valeK0[0];         /*key*/
+                valeK_=valeK0[1];        /*capital*/
+                valeKDisp=valeK_;
+                if (!carre && basePharse[valeKQ].indexOf('#key')>0)
                 {
-                   if (basePharse['capitale'].indexOf('#key')>0)
-                   {
-                       valeK_=basePharse['capitale'].replace('#key',valeK)
-                   }
+                    valeKDisp=basePharse[valeKQ].replace('#key',valeK)
+                    valeKQkey="key";
+                    valeK_=valeK;
                 }
-                js['v'] =valeK;
+                js[valeKQkey] =valeK_;
                 jss =JSON.stringify(js);
-                EnvValue(newId(ib,i,"id"),jss,valeK_); 
-                console.log(valeK,carre);
+                EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
+            
             }
     }
 document.getElementById("idoo").remove();

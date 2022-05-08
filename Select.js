@@ -38,7 +38,6 @@ function selec3()
     {
         let js;
         let sek;
-        
         if (selecOk.length)
         {
             selOk();
