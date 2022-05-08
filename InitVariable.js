@@ -1,4 +1,18 @@
-const items=["a","b","c",'d'];
+/*const items=["a","b","c",'d'];*/
+const baseDisco={};
+baseDisco["France"]={"capitale":"Paris"};
+baseDisco['Italie']={"capitale":"Rome"};
+baseDisco['Belgique']={"capitale":"Bruxelles"};
+baseDisco['Royaume-Uni']={"capitale":"Londres"};
+baseDisco['Espagne']={"capitale":"Madrid"};
+baseDisco['Autriche']={"capitale":"Vienne"};
+baseDisco['Danemark']={"capitale":"Danemark"};
+baseDisco['Irlande']={"capitale":"Dublin"};
+
+const basePharse={'capitale':'Quelle est la capitale de la #key ?'};
+
+
+
 let selec={};
 selec[0]=false;
 selec[1]=false;

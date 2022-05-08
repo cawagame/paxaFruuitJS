@@ -15,14 +15,6 @@ function selOkk(key)
             vap1 =vap.getAttribute("value");
             console.log(vap1);
             vap.remove();
-            
-            /*
-            changeClass(nid,'oos2');
-            eleId =document.getElementById(nid);
-            pos =[eleId.offsetLeft,eleId.offsetTop ] ;
-            pos2 =eleId.getBoundingClientRect()
-            console.log(key[i],pos,pos2.x,pos2.y);
-            */
         
         }
     }
