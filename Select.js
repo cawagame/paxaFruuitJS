@@ -1,4 +1,6 @@
 
+
+
 const initButton=function (cl)
     {
         let eleId;
@@ -10,6 +12,7 @@ const initButton=function (cl)
     }
 const selecVerifSiPariter =function(leselec)
     {
+        let jss;
         let selecFc={"key":false,"capitale":false};
         for (i=0;i<leselec;i++)
         {
@@ -24,7 +27,7 @@ const selecVerifSiPariter =function(leselec)
 const selec2Virif =function(leselec)
     {
 
-        let jss;
+        
         const selem1 =selec[leselec-1];
         const selem2 =selec[leselec-2];
         let selecFc=false;
@@ -42,26 +45,16 @@ const selec2Virif =function(leselec)
             else{inbutton=1;}
         }
         if (inbutton) /*init button si rien de bon*/
-        {
-            initButton('oo');
-      
-        }
-        else if (inbutton==1)
-        {
-            console.log("BINGO");
-        }
-        if (inbutton==1)
-        {
-            const vsave=selec[leselec-1];
-            selec=[];
-            selec.push(vsave);
-            jsonNid(vsave).setAttribute('class',oos0)    
-            console.log("valeur save  _       ",vsave);
-            console.log(selec);
-        }
+        {initButton('oo');}
+        
+        if (trBingo==1)
+        {bingoWin();}
+        
+        if (inbutton==1)  /*save 1-n elemen */
+        {svElem(leselec);}
         
         
-        console.log(selecFc,trBingo);
+        /*console.log(selecFc,trBingo);*/
     }
 
 
