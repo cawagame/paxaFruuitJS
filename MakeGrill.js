@@ -43,7 +43,7 @@ function makeQuestionCarre(x,y,mFind)
     }
 
 const ix=5;
-const iy=5;
+const iy=8;
 var carre=0;
 let valeK0;
 let valeK;
@@ -84,4 +84,4 @@ for (i=0;i<ix;i++)
             
             }
     }
-/*document.getElementById("idoo").remove();*/
+document.getElementById("idoo").remove();
