@@ -77,10 +77,11 @@ for (i=0;i<ix;i++)
                 }
                 js["x"]=ib;
                 js['y']=i;
-                js[valeKQkey] =valeK_;
+                js['fc']=valeKQkey;
+                js["fcv"] =valeK_;
                 jss =JSON.stringify(js);
                 EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
             
             }
     }
-document.getElementById("idoo").remove();
+/*document.getElementById("idoo").remove();*/
