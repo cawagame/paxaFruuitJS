@@ -40,4 +40,17 @@ const changeClass =function (eleId,cl)
         const sel0 =document.getElementById(eleId);
         sel0.setAttribute('class',cl);
     }
+
+const jsonStr =function(i,ib,fc,fcv)
+    {
+        js["x"]=ib;
+        js['y']=i;
+        js['fc']=fc; /*valeKQkey*/
+        js["fcv"] =fcv; /*valeK_*/
+        jss =JSON.stringify(js);
+        return jss
+    }
+
+
+
 const vCopy =function (v) {return v;}

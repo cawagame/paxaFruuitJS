@@ -46,8 +46,7 @@ const ix=5;
 const iy=8;
 var carre=0;
 let valeK0;
-let valeK;
-let valeK_;
+
 let valeKQ;
 let valeKDisp;
 let valeKQkey;
@@ -59,29 +58,22 @@ let jss;
 for (i=0;i<ix;i++)
     {
         for (ib=0;ib<iy;ib++)
-            {
-                js={}
-               
-                valeKQ='capitale';
-                valeKQkey=valeKQ;
+        {
+            js={}
+            valeKQ='capitale';
+            valeKQkey=valeKQ;
                 
-                valeK0=makeQuestionCarre(i,ib,valeKQ);
-                valeK=valeK0[0];         /*key*/
-                valeK_=valeK0[1];        /*capital*/
-                valeKDisp=valeK_;
-                if (!carre && basePharse[valeKQ].indexOf('#key')>0)
-                {
-                    valeKDisp=basePharse[valeKQ].replace('#key',valeK)
-                    valeKQkey="key";
-                    valeK_=valeK;
-                }
-                js["x"]=ib;
-                js['y']=i;
-                js['fc']=valeKQkey;
-                js["fcv"] =valeK_;
-                jss =JSON.stringify(js);
-                EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
-            
+            valeK0=makeQuestionCarre(i,ib,valeKQ);
+            valeKDisp=valeK0[1];
+            if (!carre && basePharse[valeKQ].indexOf('#key')>0)
+            {
+                valeKDisp=basePharse[valeKQ].replace('#key',valeK0[0])
+                valeKQkey="key";
+                valeK0[1]=valeK0[0];
             }
+            jss=jsonStr(i,ib,valeKQkey,valeK0[1]);
+            EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
+            
+        }
     }
 document.getElementById("idoo").remove();
