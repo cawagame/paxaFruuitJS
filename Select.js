@@ -5,12 +5,8 @@ const initButton=function (cl)
         let jss;
         let nId;
         selec.forEach(ele=>
-        {
-            jss=JSON.parse(ele);
-            nId=newId(jss.x,jss.y,"id");
-            eleId =document.getElementById(nId)
-            eleId.setAttribute('class',cl)          
-        })
+        {jsonNid(ele).setAttribute('class',cl)}
+        )
     }
 const selecVerifSiPariter =function(leselec)
     {
@@ -35,14 +31,12 @@ const selec2Virif =function(leselec)
         let trBingo=false;
         let inbutton=false;
        
-            
         if (selem1===selem2){inbutton=1;}
         else{selecFc=selecVerifSiPariter(leselec);}
         
         if (selecFc==-1){inbutton=1;}
         else
         {
-          
             const keyr =baseDisco[selecFc['key']]
             if (keyr['capitale']==selecFc['capitale']){trBingo=1;}
             else{inbutton=1;}
@@ -50,7 +44,20 @@ const selec2Virif =function(leselec)
         if (inbutton) /*init button si rien de bon*/
         {
             initButton('oo');
+      
+        }
+        else if (inbutton==1)
+        {
+            console.log("BINGO");
+        }
+        if (inbutton==1)
+        {
+            const vsave=selec[leselec-1];
             selec=[];
+            selec.push(vsave);
+            jsonNid(vsave).setAttribute('class',oos0)    
+            console.log("valeur save  _       ",vsave);
+            console.log(selec);
         }
         
         

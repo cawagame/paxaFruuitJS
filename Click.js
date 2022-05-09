@@ -2,20 +2,10 @@ const inputs = document.querySelectorAll('button')
 
 
 
-
-
-
 function aa(ele=888,e="   b")
     {
-        const elev =ele.getAttribute('value');
-        selec.push(elev);
+        selec.push(ele.getAttribute('value'));
         ele.setAttribute('class','oos0')
-        
-        
-        /*
-        if (leselec>1)
-        {selec2Virif(leselec);}       
-        */
     }
 
 
