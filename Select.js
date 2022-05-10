@@ -14,7 +14,8 @@ const selecVerifSiPariter =function(leselec)
     {
         let jss;
         let selecFc={"key":false,"capitale":false};
-        for (i=0;i<leselec;i++)
+        console.log(leselec,"-----------");
+        for (let i=0;i<leselec;i++)
         {
             jss =JSON.parse(selec[i]);
             if (!selecFc[jss.fc]){selecFc[jss.fc]=jss.fcv;}
@@ -46,6 +47,7 @@ const selec2Virif =function(leselec)
 
 const selec3 =function ()
     {
+        console.log(selec);
         let trTouch=[false,false];
         const leselec =selec.length;
         if (leselec>1)

@@ -13,6 +13,7 @@ function CloneActiv(idMaster,id,cloneId)
     {
         var clone =Clone(id);
         clone.setAttribute("id",cloneId)
+        clone.setAttribute('class','oo')  ;
         document.getElementById(idMaster).appendChild(clone);
     }
 function EnvValue(id,js,value)
@@ -23,27 +24,43 @@ function EnvValue(id,js,value)
     }
 
 
-function makeQestion(y,x,mFind)
+function makeQestion(y,x,mFind,douClone)
     {
         let valueKeys;
         let valueKeys_;
-        CloneActiv("idtab","idoo",newId(x,y,"id"));
+        CloneActiv("idtab",douClone,newId(x,y,"id"));
         valueKeys =random_item(Object.keys(baseDisco))  /*pour index*/
         valueKeys_ =baseDisco[valueKeys][mFind];
         return [valueKeys,valueKeys_];
     }
-
-
-function makeQuestionCarre(x,y,mFind)
+function makeQuestionCarre()
     {
         carre +=1;
         if (carre>Object.keys(basePharse).length){carre=0;}
-        return makeQestion(x,y,mFind);
-        
     }
 
-const ix=5;
-const iy=8;
+function usineMake(i,ib)
+    {
+        js={}
+        valeKQ='capitale';
+        valeKQkey=valeKQ;
+    
+        valeK0=makeQestion(i,ib,valeKQ,"idoo")
+        valeKDisp=valeK0[1];
+        makeQuestionCarre();
+        if (!carre && basePharse[valeKQ].indexOf('#key')>0)
+        {
+            valeKQkey="key";
+            valeK0[1]=valeK0[0];
+            valeKDisp=basePharse[valeKQ].replace('#key',valeK0[0])
+        }
+        jss=jsonStr(i,ib,valeKQkey,valeK0[1]);
+        EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
+            
+    }
+
+const i=0;
+const iy=40;
 var carre=0;
 let valeK0;
 
@@ -53,27 +70,9 @@ let valeKQkey;
 let js ={};
 let jss;
 
-
-
-for (i=0;i<ix;i++)
-    {
-        for (ib=0;ib<iy;ib++)
-        {
-            js={}
-            valeKQ='capitale';
-            valeKQkey=valeKQ;
-                
-            valeK0=makeQuestionCarre(i,ib,valeKQ);
-            valeKDisp=valeK0[1];
-            if (!carre && basePharse[valeKQ].indexOf('#key')>0)
-            {
-                valeKDisp=basePharse[valeKQ].replace('#key',valeK0[0])
-                valeKQkey="key";
-                valeK0[1]=valeK0[0];
-            }
-            jss=jsonStr(i,ib,valeKQkey,valeK0[1]);
-            EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
-            
-        }
-    }
-document.getElementById("idoo").remove();
+for (ib=0;ib<iy;ib++)
+{
+    usineMake(i,ib);
+}
+    
+/*document.getElementById("idoo").remove();*/
