@@ -6,9 +6,11 @@ function bigOO(ele)
 
 function bingoWin()
     {
+        
         console.log(selec);
         selec.forEach(ele=>
-            bigOO(ele)
-      
+        bigOO(ele)
             );
+
+       
     }

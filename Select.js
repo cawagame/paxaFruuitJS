@@ -14,7 +14,6 @@ const selecVerifSiPariter =function(leselec)
     {
         let jss;
         let selecFc={"key":false,"capitale":false};
-        console.log(leselec,"-----------");
         for (let i=0;i<leselec;i++)
         {
             jss =JSON.parse(selec[i]);
@@ -47,7 +46,6 @@ const selec2Virif =function(leselec)
 
 const selec3 =function ()
     {
-        console.log(selec);
         let trTouch=[false,false];
         const leselec =selec.length;
         if (leselec>1)
@@ -70,8 +68,6 @@ paragraphe.addEventListener('click',
                                 {
                                     bingoWin();
                                     selec=[];
-                                }
-                                console.log('Fin Select',trBingo);
-                                
+                                }                                
                             }
                            );

@@ -39,14 +39,19 @@ function makeQuestionCarre()
         if (carre>Object.keys(basePharse).length){carre=0;}
     }
 
-function usineMake(i,ib)
+function usineMake()
     {
-        js={}
-        valeKQ='capitale';
+        let valeK0;
+        let valeKQ;
+        let valeKDisp;
+        let valeKQkey;
+        let jss;
+        js            ={};
+        valeKQ        ='capitale';
         valeKQkey=valeKQ;
     
-        valeK0=makeQestion(i,ib,valeKQ,"idoo")
-        valeKDisp=valeK0[1];
+        valeK0       =makeQestion(i,iicomp,valeKQ,"idoo")
+        valeKDisp    =valeK0[1];
         makeQuestionCarre();
         if (!carre && basePharse[valeKQ].indexOf('#key')>0)
         {
@@ -54,25 +59,26 @@ function usineMake(i,ib)
             valeK0[1]=valeK0[0];
             valeKDisp=basePharse[valeKQ].replace('#key',valeK0[0])
         }
-        jss=jsonStr(i,ib,valeKQkey,valeK0[1]);
-        EnvValue(newId(ib,i,"id"),jss,valeKDisp); 
+        jss=jsonStr(i,iicomp,valeKQkey,valeK0[1]);
+        EnvValue(newId(iicomp,i,"id"),jss,valeKDisp);
+        iicomp+=1;
+        if (iicomp>100)
+        {
+            i+=1;
+            iicomp =0;
+        }
             
     }
 
-const i=0;
-const iy=40;
-var carre=0;
-let valeK0;
-
-let valeKQ;
-let valeKDisp;
-let valeKQkey;
+let i    =0;
+const iy   =55;
+let iicomp=0
+var carre  =0;
 let js ={};
-let jss;
 
 for (ib=0;ib<iy;ib++)
 {
-    usineMake(i,ib);
+    usineMake();
 }
     
 /*document.getElementById("idoo").remove();*/

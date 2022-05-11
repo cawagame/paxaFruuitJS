@@ -1,4 +1,6 @@
-/*const items=["a","b","c",'d'];*/
+
+let inputs; /*les button*/
+
 const baseDisco={};
 baseDisco["France"]={"capitale":"Paris"};
 baseDisco['Italie']={"capitale":"Rome"};
