@@ -1,6 +1,6 @@
 
 let inputs; /*les button*/
-
+let eleOccup=[];
 const baseDisco={};
 baseDisco["France"]={"capitale":"Paris"};
 baseDisco['Italie']={"capitale":"Rome"};
@@ -45,6 +45,7 @@ const changeClass =function (eleId,cl)
 
 const jsonStr =function(i,ib,fc,fcv)
     {
+        let js={};
         js["x"]=ib;
         js['y']=i;
         js['fc']=fc; /*valeKQkey*/

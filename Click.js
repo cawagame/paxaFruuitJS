@@ -20,4 +20,3 @@ inputs.forEach(
 let a=ee();
 console.log(a,"-------sss");
 
-
