@@ -1,5 +1,5 @@
 
-let motsValue=[["paris",53,"capitale"],['llll',53,'keys'],['jjjj',53,'ke']];
+let motsValue=[["paris",null,"capitale"],['llll',null,'keys'],['jjjj',null,'ke']];
 let montsCompt =0;
 let monterI;
 let frameTime =0;
@@ -46,11 +46,34 @@ function monter(frame)
         if (frameTime>100*frameT)
         {
             frameT +=1;
+            for (let i=0;i<motsValue.length;i++)
+                {
+            if (i==0 && motsValue[i][1]==null)
+            {
+                motsValue[i][1]=53;
+            }
+            if (i>0 && motsValue[i][1]==null && motsValue[i-1][1]<50 && motsValue[i-1][1]!=null)
+                    {
+                        
+                        motsValue[i][1]=53;
+                        console.log("--- ---");
+                        console.log( motsValue,i)
+                    }
+                }
+            for (let i=0;i<motsValue.length;i++)
+            {
+                if ( motsValue[i][1]!=null)
+                {
+                    monterI=motsValue[i][1];
+                    id=document.getElementById(newId(0,monterI,"id"));
+                    js=JSON.parse(id.value);
+                    mvFrame(id,js,i);
+                }
+            }
             
-            monterI=motsValue[montsCompt][1];
-            id=document.getElementById(newId(0,monterI,"id"));
-            js=JSON.parse(id.value);
-            mvFrame(id,js,montsCompt);
+                
+            
+                
         }
         
        
