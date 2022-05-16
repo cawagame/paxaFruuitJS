@@ -1,5 +1,5 @@
 
-let motsValue=[["paris",null,"capitale"],['llll',null,'keys'],['jjjj',null,'ke']];
+let motsValue=[];
 let montsCompt =0;
 let monterI;
 let frameTime =0;
@@ -69,10 +69,14 @@ function monter(frame)
         }    
         if (motsValue.length>0)  
         {requestAnimationFrame(monter);}
+        else{
+            requestAnimationFrame(monter);
+            
+
+        }
+
         
     }
 requestAnimationFrame(monter);
-motsValue.push(['ddd',null,"ede"])
-
 
 

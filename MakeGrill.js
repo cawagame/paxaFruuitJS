@@ -1,9 +1,5 @@
 
 
-function random_item(items)
-{
-    return items[Math.floor(Math.random()*items.length)];
-}
 
 function Clone(id)
     {
@@ -27,14 +23,7 @@ function EnvValue(id,js,value,cl=false)
     }
 
 
-function makeQestion(y,x,mFind,douClone)
-    {
-        let valueKeys;
-        let valueKeys_;
-        valueKeys =random_item(Object.keys(baseDisco))  /*pour index*/
-        valueKeys_ =baseDisco[valueKeys][mFind];
-        return [valueKeys,valueKeys_];
-    }
+
 function makeQuestionCarre()
     {
         carre +=1;
