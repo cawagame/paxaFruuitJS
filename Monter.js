@@ -10,9 +10,9 @@ var idvalue;
 
 function mvFrame(id,js,mstCompt)
     {
-        
         if (!js.fc)
         {
+            
             idvalue=motsValue[mstCompt][0];
             EnvValue(newId(0,monterI,"id"),id.value,idvalue,"oo");
             EnvValue(newId(0,monterI+1,"id"),id.value,"ccc","ooinvi");
@@ -31,9 +31,28 @@ function mvFrame(id,js,mstCompt)
             id.setAttribute("value",jsn);
             motsValue.splice(mstCompt,1);
         }
-       
         if (mstCompt>motsValue.length-1){mstCompt=0;}
         
+    }
+function timeOk()
+    {
+        for (let i=0;i<motsValue.length;i++)
+        {
+            if (i==0 && motsValue[i][1]==null)
+            {motsValue[i][1]=53;}
+            else if (i>0 && motsValue[i][1]==null && motsValue[i-1][1]<52 && motsValue[i-1][1]!=null)
+            {motsValue[i][1]=53;}
+        }
+        for (let i=0;i<motsValue.length;i++)
+        {
+            if ( motsValue[i][1]!=null)
+            {
+                monterI=motsValue[i][1];
+                id=document.getElementById(newId(0,monterI,"id"));
+                js=JSON.parse(id.value);
+                mvFrame(id,js,i);
+            }
+        }  
     }
 function monter(frame)
     {
@@ -46,41 +65,14 @@ function monter(frame)
         if (frameTime>100*frameT)
         {
             frameT +=1;
-            for (let i=0;i<motsValue.length;i++)
-                {
-            if (i==0 && motsValue[i][1]==null)
-            {
-                motsValue[i][1]=53;
-            }
-            if (i>0 && motsValue[i][1]==null && motsValue[i-1][1]<50 && motsValue[i-1][1]!=null)
-                    {
-                        
-                        motsValue[i][1]=53;
-                        console.log("--- ---");
-                        console.log( motsValue,i)
-                    }
-                }
-            for (let i=0;i<motsValue.length;i++)
-            {
-                if ( motsValue[i][1]!=null)
-                {
-                    monterI=motsValue[i][1];
-                    id=document.getElementById(newId(0,monterI,"id"));
-                    js=JSON.parse(id.value);
-                    mvFrame(id,js,i);
-                }
-            }
-            
-                
-            
-                
-        }
-        
-       
+            timeOk();
+        }    
         if (motsValue.length>0)  
         {requestAnimationFrame(monter);}
         
     }
 requestAnimationFrame(monter);
+motsValue.push(['ddd',null,"ede"])
+
 
 

@@ -1,3 +1,5 @@
+
+
 function random_item(items)
 {
     return items[Math.floor(Math.random()*items.length)];
@@ -42,52 +44,45 @@ function makeQuestionCarre()
 function usineMake()
     {
         
+        
+        iicompLigne =iicompLig();
         eleOccup.push(["inv",false])
-        CloneActiv("idtab",'idoo',newId(i,iicomp,"id"),'ooinvi');
-        jss=jsonStr(i,iicomp,false,false);
-        EnvValue(newId(i,iicomp,"id"),jss,"");
-        iicomp+=1;
+        CloneActiv("idtab",'idoo',newId(i,iicompLigne,"id"),'ooinvi');
+        jss=jsonStr(i,iicompLigne,false,false);
+        EnvValue(newId(i,iicompLigne,"id"),jss,"");
+        iicomp+=1
         
-        /*
-        let valeK0;
-        let valeKQ;
-        let valeKDisp;
-        let valeKQkey;
-        
-        js            ={};
-        
-        valeKQ        ='capitale';
-        valeKQkey=valeKQ;
-    
-        valeK0       =makeQestion(i,iicomp,valeKQ,"idoo")
-        valeKDisp    =valeK0[1];
-        makeQuestionCarre();
-        if (!carre && basePharse[valeKQ].indexOf('#key')>0)
-        {
-            valeKQkey="key";
-            valeK0[1]=valeK0[0];
-            valeKDisp=basePharse[valeKQ].replace('#key',valeK0[0])
-        }
-        jss=jsonStr(i,iicomp,valeKQkey,valeK0[1]);
-        EnvValue(newId(iicomp,i,"id"),jss,valeKDisp);
-        
-        if (iicomp>100)
-        {
-            i+=1;
-            iicomp =0;
-        }
-            */
     }
 
 let i    =0;
 const iy   =55;
 let iicomp=0
-var carre  =0;
+let iicompLigne=0;
+let carre  =0;
 let js ={};
+let codeLigne=false;
+let codeLigneAdd=0;
 
 for (ib=0;ib<iy;ib++)
-{
+{    
+    if (codeLigneAdd>4)
+    {
+        if (codeLigne)
+        {
+            codeLigne=false;
+            
+        }
+        else 
+        {
+            codeLigne=true;
+            iicompLigne =iicomp+5;
+        }
+        codeLigneAdd=0;
+    }
     usineMake();
+    codeLigneAdd+=1;
+    
+    
 }
 
 /*document.getElementById("idoo").remove();*/

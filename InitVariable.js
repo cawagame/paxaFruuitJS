@@ -57,3 +57,11 @@ const jsonStr =function(i,ib,fc,fcv)
 
 
 const vCopy =function (v) {return v;}
+
+const iicompLig =function()
+    {
+        if (!codeLigne)
+        {iicompLigne =iicomp;}
+        else{iicompLigne -=1;}
+        return iicompLigne;
+    }
